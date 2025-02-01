@@ -4,7 +4,7 @@
 [![by Meg Patakota](https://img.shields.io/badge/by-Meg%20Patakota-blue)](https://meg-patakota.github.io)
 [![Project Status](https://img.shields.io/badge/Status-In%20Development-orange)](https://github.com/yourusername/genai-recommendations)
 
-> ⚠️ **Disclaimer:** This project is under active development. Code, features, and documentation may evolve as the solution matures.
+> ⚠️ **Disclaimer:** This project is an MVP. Code, features, and documentation may evolve as the solution matures.
 
 ## Table of Contents
 - [Overview](#overview)
