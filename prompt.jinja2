@@ -1,0 +1,43 @@
+## User Profile
+**Name:** {{ name }}
+**Location:** {{ location }}
+
+## Past Experiences
+{% if past_experiences %}
+{% for exp in past_experiences %}
+- **Experience Title:** {{ exp.title }}
+  - **Category:** {{ exp.category }}
+{% endfor %}
+{% else %}
+None
+{% endif %}
+
+## Recent Transactions
+{% if transactions %}
+{% for txn in transactions %}
+    - **Merchant:** {{ txn.merchant }}
+    - **Category:** {{ txn.category }}
+    - **Amount Spent:** {{ txn.amount }}
+{% endfor %}
+{% else %}
+No recorded transactions
+{% endif %}
+
+## Available Experiences
+
+Here are experiences the user has not yet tried:
+
+{% if available_experiences %}
+{% for exp in available_experiences %}
+- **Experience Title:** {{ exp.title }}
+  - **Category:** {{ exp.category }}
+{% endfor %}
+{% else %}
+None
+{% endif %}
+
+## Personalised Experience Recommendations
+Given the user's past experiences and recent transactions, suggest 3 new Yonder Experiences this user might enjoy.
+
+For each recommendation, include a short explanation based only on the provided data.
+

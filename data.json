@@ -1,0 +1,157 @@
+{
+    "members": [
+      {
+        "member_id": "M001",
+        "name": "Alice",
+        "location": "London",
+        "past_redeemed_offers": [
+          {
+            "experience_id": "E001",
+            "redeemed_date": "2024-10-05"
+          }
+        ],
+        "card_transactions": [
+          {
+            "transaction_id": "T001",
+            "date": "2024-12-15",
+            "merchant_name": "Tesco",
+            "category": "Groceries",
+            "amount": 45.32
+          },
+          {
+            "transaction_id": "T002",
+            "date": "2025-01-05",
+            "merchant_name": "Spotify",
+            "category": "Subscription",
+            "amount": 9.99
+          }
+        ]
+      },
+      {
+        "member_id": "M002",
+        "name": "Ben",
+        "location": "Manchester",
+        "past_redeemed_offers": [
+          {
+            "experience_id": "E003",
+            "redeemed_date": "2024-11-10"
+          }
+        ],
+        "card_transactions": [
+          {
+            "transaction_id": "T003",
+            "date": "2024-12-20",
+            "merchant_name": "Costa Coffee",
+            "category": "Dining",
+            "amount": 5.20
+          },
+          {
+            "transaction_id": "T004",
+            "date": "2025-01-07",
+            "merchant_name": "Amazon",
+            "category": "Retail",
+            "amount": 29.99
+          },
+          {
+            "transaction_id": "T005",
+            "date": "2025-01-14",
+            "merchant_name": "Vue Cinemas",
+            "category": "Entertainment",
+            "amount": 15.00
+          }
+        ]
+      }
+    ],
+    "experiences": [
+      {
+        "experience_id": "E001",
+        "title": "Gourmet Sushi Tasting",
+        "category": "Food",
+        "short_description": "An exclusive tasting session with a professional sushi chef.",
+        "long_description": "Indulge in an exquisite journey through the art of sushi-making. Join Chef Hiro, who has spent over 20 years refining his craft in Tokyo and London. You’ll learn the fundamentals of fish selection, rice preparation, and plating, all culminating in a tasting of premium-grade sushi paired with traditional sake.",
+        "location": "London",
+        "price_range": "£££",
+        "rating": 4.8,
+        "images": [
+          "https://example.com/sushi_experience_1.jpg",
+          "https://example.com/sushi_experience_2.jpg"
+        ],
+        "available_dates": [
+          "2025-02-10",
+          "2025-03-05"
+        ]
+      },
+      {
+        "experience_id": "E002",
+        "title": "Weekend Surf Trip",
+        "category": "Adventure",
+        "short_description": "A two-day surf excursion with gear and lessons included.",
+        "long_description": "Escape the city for a sun-soaked weekend at the best surf spots along the Cornish coast. Perfect for beginners and seasoned surfers alike, this package includes professional lessons, board rentals, and shared lodging with fellow surf enthusiasts. End each day around a bonfire, sharing waves and stories under the stars.",
+        "location": "Cornwall",
+        "price_range": "££",
+        "rating": 4.7,
+        "images": [
+          "https://example.com/surf_trip_1.jpg",
+          "https://example.com/surf_trip_2.jpg"
+        ],
+        "available_dates": [
+          "2025-04-15",
+          "2025-05-20"
+        ]
+      },
+      {
+        "experience_id": "E003",
+        "title": "Live Jazz Concert",
+        "category": "Music",
+        "short_description": "An evening of live jazz performances in an iconic venue.",
+        "long_description": "Immerse yourself in the soulful melodies of top jazz musicians, performing classic standards and modern interpretations alike. This intimate show is set in a historic concert hall known for its warm acoustics and vibrant atmosphere. Guests will enjoy table seating, optional dinner service, and a curated wine list.",
+        "location": "Manchester",
+        "price_range": "££",
+        "rating": 4.6,
+        "images": [
+          "https://example.com/jazz_concert_1.jpg"
+        ],
+        "available_dates": [
+          "2025-03-12",
+          "2025-04-18"
+        ]
+      },
+    
+      {
+        "experience_id": "E004",
+        "title": "Yoga & Mindfulness Retreat",
+        "category": "Wellness",
+        "short_description": "A rejuvenating getaway focused on yoga, meditation, and holistic therapies.",
+        "long_description": "Rediscover your inner balance with a three-day retreat in the tranquil countryside. Your stay includes daily guided yoga sessions, mindfulness workshops, and spa treatments. Surrounded by lush greenery, you’ll learn techniques for stress reduction and personal well-being that you can carry back into your everyday life.",
+        "location": "Bath",
+        "price_range": "£££",
+        "rating": 4.9,
+        "images": [
+          "https://example.com/yoga_retreat_1.jpg",
+          "https://example.com/yoga_retreat_2.jpg"
+        ],
+        "available_dates": [
+          "2025-05-10",
+          "2025-06-05"
+        ]
+      },
+      {
+        "experience_id": "E005",
+        "title": "Music Festival",
+        "category": "Music",
+        "short_description": "A multi-day music festival featuring a diverse lineup of artists.",
+        "long_description": "Join thousands of music lovers at this years premier festival, showcasing a mix of genres from rock and pop to electronic and hip-hop. With multiple stages, food vendors, and art installations, the event promises an unforgettable weekend of live performances and community celebration.",
+        "location": "lONDON",
+        "price_range": "££",
+        "rating": 4.6,
+        "images": [
+          "https://example.com/music_concert_1.jpg"
+        ],
+        "available_dates": [
+          "2025-03-12",
+          "2025-04-18"
+        ]
+      }
+    ]
+  }
+  
