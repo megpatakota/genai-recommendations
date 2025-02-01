@@ -1,7 +1,3 @@
-Based on the provided files and your request for a professional README in the format you shared, here's an improved and polished version tailored to your **GenAI-Based Recommendation Service** project:
-
----
-
 # GenAI-Based Recommendation Service
 
 [![Personal Project](https://img.shields.io/badge/Project-Personal-green)](https://meg-patakota.github.io)
