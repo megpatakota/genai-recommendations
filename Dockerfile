@@ -30,6 +30,6 @@ EXPOSE 8000
 CMD ["uvicorn", "api:app", "--host", "0.0.0.0", "--port", "8000"]
 
 # to run the container:
-# docker build -t yonder-api .
-# docker run -d -p 8000:8000 yonder-api
+# docker build -t experience-api .
+# docker run -d -p 8000:8000 experience-api
 # http://localhost:8000/recommendations/M001?output=json

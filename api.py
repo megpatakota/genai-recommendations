@@ -5,8 +5,8 @@ from pydantic import BaseModel
 from typing import List
 
 app = FastAPI(
-    title="Yonder Experience Recommender API",
-    description="Provides personalised Yonder Experience recommendations based on member data.",
+    title="Experience Recommender API",
+    description="Provides personalised Experience recommendations based on member data.",
     version="1.0.0"
 )
 
@@ -57,8 +57,12 @@ async def health_check():
 # Optionally add a root endpoint with a friendly message
 @app.get("/")
 async def root():
-    return {"message": "Welcome to the Yonder Experience Recommender API. Please visit /docs for API documentation."}
+    return {"message": "Welcome to the Experience Recommender API. Please visit /docs for API documentation."}
 
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=8000)
+
+# test the code by running:
+# poetry run uvicorn api:app --reload
+# http://127.0.0.1:8000/recommendations/M001
