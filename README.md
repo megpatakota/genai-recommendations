@@ -37,6 +37,11 @@ The service consists of:
 
 ## Installation
 
+Prerequisites:
+- Docker
+- Python 3.13
+- Poetry
+
 Clone the repository and set up the environment using **Poetry**:
 
 ```bash
@@ -51,7 +56,7 @@ poetry install
 poetry run streamlit run app.py
 ```
 
-Alternatively, to use the Dockerised version:
+Now START your docker, build and run your docker container:
 
 ```bash
 docker build -t genai-recommendations .
