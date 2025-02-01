@@ -60,8 +60,11 @@ Now START your docker, build and run your docker container:
 
 ```bash
 docker build -t genai-recommendations .
-docker run -p 8000:8000 genai-recommendations
+docker run -e OPENAI_API_KEY=<insert-your-api-key> -p 8000:8000 genai-recommendations
 ```
+
+Now, that you have your docker container running, you can access the app.
+Try user ID `M001` or `M002` to see the recommendations.
 
 ---
 
