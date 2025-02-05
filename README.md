@@ -15,7 +15,8 @@
 - [Next Steps](#next-steps)
 - [Contributing](#contributing)
 
-## [Read more documentation ](./docs/documentation.md).
+## [Read full documentation ](./docs/documentation.md)
+Further details on: Prompt/Model Approach, Data Integration, System Design, Trade-Offs & Next Steps
 
 ---
 
@@ -77,34 +78,8 @@ Now, that you have your docker container running, you can access the streamlit a
 
 ---
 
-## Prompt Design and Architecture
-
-### Prompt Design
-
-The recommendation engine uses **Jinja2 templates** to craft well-structured prompts that encapsulate:
-- User profiles, past experiences, and recent transactions.
-- Available experiences (not yet redeemed).
-- A request for personalised recommendations tailored to this data.
-
-Example Prompt Template:
-```jinja2
-## User Profile
-**Name:** {{ name }}
-**Location:** {{ location }}
-
-## Past Experiences
-{% if past_experiences %}
-{% for exp in past_experiences %}
-- **Experience Title:** {{ exp.title }}
-  - **Category:** {{ exp.category }}
-{% endfor %}
-{% else %}
-None
-{% endif %}
-...
+## Architecture
 ```
-[Full Template Code](./backend/templates/recommendations.jinja2) and other [Prompt Templates](./backend/templates/)
-
 ### Core Flow
 
 1. **utils.py**:
