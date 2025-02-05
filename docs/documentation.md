@@ -81,7 +81,7 @@ The `experiences` dataset includes:
 ---
 
 ## System Design
-![Architecture](./images/ProcessDiagram.png)
+![Architecture](../images/ProcessDiagram.png)
 
 ### Architecture Overview
 The system is modular, with clearly separated responsibilities for data preparation, prompt generation, and recommendation display. 
