@@ -121,3 +121,4 @@ The workflow adheres to the architecture outlined in the provided diagram:
 3. **Frontend**:
    - **Current**: Streamlit is ideal for demos but lacks the flexibility of modern front-end frameworks.
    - **Future**: The recommendations should be integrated into the live application.
+![Future Enhancements](../images/FutureEnhance.png)
