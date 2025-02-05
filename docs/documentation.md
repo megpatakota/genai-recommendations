@@ -140,4 +140,5 @@ The workflow adheres to the architecture outlined in the provided diagram:
 5. **Testing & QA**:
    - Develop unit tests for `utils.py` and API endpoints.
    - Conduct load testing to ensure resilience under high traffic.
+![Architecture](../images/FutureEnhance.png)
 
