@@ -17,6 +17,8 @@
 
 ---
 
+![Architecture](./images/ProcessDiagram.png)
+
 ## Overview
 
 This project leverages **Generative AI (GenAI)** to deliver personalised experience recommendations to members based on:
