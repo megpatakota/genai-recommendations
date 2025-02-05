@@ -15,6 +15,8 @@
 - [Next Steps](#next-steps)
 - [Contributing](#contributing)
 
+[Read more documentation ](./documentation.md).
+
 ---
 
 ## Overview
@@ -175,22 +177,7 @@ Fetches recommendations for a specific member.
 
 ## Next Steps
 
-1. **Production-Grade Deployment**:
-   - Replace `data.json` with a proper database (e.g., PostgreSQL or DynamoDB).
-   - Transition from Streamlit to a React-based front-end for public-facing applications.
-
-2. **Performance Optimisation**:
-   - Explore caching for LLM queries to reduce API costs and latency.
-   - Implement batch processing for simultaneous recommendations.
-
-3. **Security**:
-   - Use `AWS Secrets Manager` or `Azure Key Vault` to manage API keys securely.
-   - Implement JWT-based user authentication.
-
-4. **Observability**:
-   - Add structured logging with tools like `Datadog` or `Prometheus`.
-   - Include error tracking using `Sentry`.
-
+[Read more on TradeOffs & Next Steps](./documentation.md).
 ---
 
 ## Contributing
