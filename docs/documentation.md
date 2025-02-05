@@ -18,7 +18,6 @@ Reasons for opting this model for the MVP:
 - **Cost-Effective**: Offers a budget-friendly solution compared to larger models.  
 - **Minimal Overhead**: Hosted by OpenAI, removing the need for in-house infrastructure.  
 - **Scalable**: Seamlessly grows with increasing demand.
-- **Batch Processing Endpoint**: Post MVP, designed to handle high-volume data tasks asynchronously, enhancing efficiency for offline processes.
   
 This model is suitable for:
 - Generating human-readable explanations.
