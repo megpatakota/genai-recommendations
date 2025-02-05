@@ -1,19 +1,28 @@
-# Short Documentation for GenAI-Based Recommendation Service
+# Documentation for GenAI-Based Recommendation Service
+
+## Table of Contents
+1. [Prompt/Model Approach](#promptmodel-approach)
+2. [Data Integration](#data-integration)
+3. [System Design](#system-design)
+4. [Trade-Offs & Next Steps](#trade-offs--next-steps)
 
 ---
 
-## **Prompt/Model Approach**
+## Prompt/Model Approach
 
-### Model Choice:
-The project leverages **OpenAI’s GPT** for its robust generative capabilities and ability to interpret diverse, structured prompts. The specific version (`gpt-4o-mini`) was chosen for balancing cost and performance.
+### Model Choice
+The project uses **OpenAI GPT** to power its recommendation engine. The chosen model (e.g., `gpt-4o-mini`) provides robust natural language understanding and generation capabilities. This model is suitable for:
+- Generating human-readable explanations.
+- Interpreting structured data like user profiles and transaction history.
+- Contextually linking diverse data points (e.g., dining preferences and location).
 
-### Prompt Structuring:
-The prompt was carefully designed using **Jinja2 templates** to format user profile data, transaction history, and available experiences. This structured approach ensures:
-1. **Consistency**: Prompts include all relevant data, such as past experiences and transaction categories, without extraneous noise.
-2. **Flexibility**: The Jinja2 template can be easily updated to incorporate additional user data fields or new types of experiences.
-3. **Clarity**: The prompt format helps the LLM focus on the context provided, reducing irrelevant recommendations.
+### Prompt Design
+Prompts are dynamically crafted using **Jinja2 templates** to ensure:
+- **Clarity**: Each user’s data (e.g., profile details, transaction history) is presented in a structured format.
+- **Relevance**: Only applicable experiences are included in the prompt.
+- **Flexibility**: Easy to adapt for new data fields or experience categories.
 
-**Example Prompt:**
+#### Example Prompt Structure:
 ```plaintext
 ## User Profile
 **Name:** Alice
@@ -21,124 +30,105 @@ The prompt was carefully designed using **Jinja2 templates** to format user prof
 
 ## Past Experiences
 - Experience Title: Gourmet Sushi Tasting
-- Category: Food
+  - Category: Food
 
 ## Recent Transactions
 - Merchant: Tesco
-- Category: Groceries
-- Amount Spent: £45.32
-- Merchant: Spotify
-- Category: Subscription
-- Amount Spent: £9.99
+  - Category: Groceries
+  - Amount Spent: £45.32
 
 ## Available Experiences
 - Experience Title: Weekend Surf Trip
-- Category: Adventure
+  - Category: Adventure
 - Experience Title: Yoga & Mindfulness Retreat
-- Category: Wellness
+  - Category: Wellness
 
 ## Personalised Experience Recommendations
-Given the user's past experiences and recent transactions, suggest 3 new experiences this user might enjoy.
+Based on the user's past experiences and recent transactions, suggest 3 new experiences this user might enjoy.
 ```
 
-**Why GPT?**
-- **Reasoning**: GPT can infer logical connections between diverse datasets (e.g., linking dining preferences with wellness retreats).
-- **Adaptability**: The model easily handles edge cases, like users with limited data.
+The system sends the above prompt to the LLM, which responds with structured recommendations and corresponding justifications.
 
 ---
 
-## **Data Integration**
+## Data Integration
 
-### Member Data:
-The dataset (`data.json`) includes detailed member profiles with:
-1. **Past redeemed experiences** (e.g., categories, redemption dates).
-2. **Transaction history** (e.g., merchant names, categories, amounts).
+### Member Data
+The `members` dataset contains:
+- **Profile Information**: Name, location, and unique member ID.
+- **Historical Data**:
+  - `past_redeemed_offers`: Records of previously redeemed experiences.
+  - `card_transactions`: Transaction history with merchant names, categories, and amounts.
 
-This data is dynamically mapped to the prompt using Python dictionaries for efficient lookups.
+### Experience Data
+The `experiences` dataset includes:
+- **Attributes**: Experience title, category, description, price range, and availability dates.
+- **Exclusions**: Experiences already redeemed by the user are filtered out.
 
-### Experience Data:
-Each experience entry includes:
-- Title, category, descriptions, price range, location, ratings, and available dates.
-- Experiences already redeemed by the user are excluded from the recommendation pool.
-
-### Integration Process:
+### Integration Flow
 1. **Data Preparation**:
-- Member and experience data are loaded into memory from `data.json`.
-- Filters are applied to generate `available_experiences` (i.e., not redeemed yet).
-- Transaction history is formatted into a human-readable structure.
-2. **Prompt Generation**:
-- The prepared data is injected into the Jinja2 template.
-- The resulting prompt is passed to the LLM for recommendation generation.
+   - Filter and format user-specific data (e.g., exclude redeemed experiences).
+   - Convert transactions into a human-readable format (e.g., `£45.32`).
+2. **Dynamic Prompt Generation**:
+   - Inject the prepared data into a Jinja2 template.
+   - Ensure consistent formatting for LLM consumption.
+3. **LLM Query**:
+   - Submit the generated prompt to OpenAI GPT.
+   - Parse and validate the returned recommendations.
 
 ---
 
-## **System Design**
+## System Design
+![Architecture](./images/ProcessDiagram.png)
 
-### Architecture:
+### Architecture Overview
+The system is modular, with clearly separated responsibilities for data preparation, prompt generation, and recommendation display. 
+
+#### Key Components:
 1. **Frontend**:
-- Built using **Streamlit** for fast prototyping and internal demos.
-- Allows users to input their member ID and view tailored recommendations in real-time.
-
+   - **Streamlit UI**: Captures user input (Member ID) and displays recommendations.
 2. **Backend**:
-- Core business logic resides in `utils.py`, which handles:
-- Data preparation (filtering and formatting).
-- Prompt generation using Jinja2.
-- Interaction with OpenAI’s GPT model.
-- API endpoint (`/recommendations/{member_id}`) supports:
-- **JSON**: Structured response for programmatic use.
-- **Text**: Natural language response for user-facing applications.
+   - **Prompt Preparation**: Combines member and experience data into a structured prompt using Jinja2.
+   - **LLM Integration**: Sends prompts to OpenAI GPT and processes the results.
+3. **Deployment**:
+   - **Docker**: Ensures consistent deployment across environments.
 
-3. **Infrastructure**:
-- Docker is used for portability and consistent deployment across environments.
-
-### Sketch:
-```
-+-------------------+ +--------------------+ +----------------------+
-| Frontend (Streamlit) | <-----> | Backend (FastAPI) | <-----> | OpenAI GPT (LLM) |
-| User Inputs Member ID| | Prompt Preparation | | Generates Recommendations|
-+-------------------+ | Calls LLM API | +----------------------+
-+--------------------+
-```
+### Workflow Diagram:
+The workflow adheres to the architecture outlined in the provided diagram:
+1. **Input Capture**: User enters Member ID in the Streamlit interface.
+2. **Prompt Creation**: Member data and available experiences are combined into a structured prompt.
+3. **LLM Processing**: OpenAI GPT generates recommendations.
+4. **Output Display**: Recommendations are rendered in the Streamlit UI.
 
 ---
 
-## **Trade-Offs & Next Steps**
+## Trade-Offs & Next Steps
 
-### Trade-Offs:
-1. **Cost of GPT**:
-- **Current**: OpenAI GPT is reliable but can be expensive for high traffic.
-- **Future Consideration**: Evaluate open-source alternatives like **Hugging Face models** for cost efficiency.
-
-2. **Data Source**:
-- **Current**: Data is stored in a local JSON file, limiting scalability.
-- **Future Consideration**: Move to a managed database (e.g., **PostgreSQL** or **DynamoDB**) for concurrent access and scalability.
-
+### Trade-Offs
+1. **Cost**:
+   - **Current**: OpenAI GPT incurs API costs, especially with high traffic.
+   - **Future**: Evaluate open-source alternatives like Hugging Face Transformers to reduce costs.
+2. **Data Storage**:
+   - **Current**: JSON files provide a lightweight, easy-to-edit solution for MVP development.
+   - **Future**: Transition to a relational database (e.g., PostgreSQL) for scalability.
 3. **Frontend**:
-- **Current**: Streamlit is excellent for MVPs but lacks flexibility for public-facing applications.
-- **Future Consideration**: Transition to a **React/Vue-based UI** for greater customisation and responsiveness.
+   - **Current**: Streamlit is ideal for demos but lacks the flexibility of modern front-end frameworks.
+   - **Future**: Build a React-based UI for a production-ready interface.
 
-4. **Performance**:
-- **Current**: Each recommendation call queries the LLM, increasing latency.
-- **Future Consideration**:
-- Cache frequent recommendations.
-- Precompute recommendations for active users.
-
-### Next Steps:
-1. **Observability**:
-- Add logging and monitoring with tools like **Prometheus** or **Datadog** to track API performance and detect anomalies.
-- Use **Sentry** for error tracking.
-
-2. **A/B Testing**:
-- Experiment with different prompt structures to optimise recommendation quality.
-
+### Next Steps
+1. **Production Deployment**:
+   - Migrate JSON-based data to a managed database (PostgreSQL or DynamoDB).
+   - Use container orchestration (e.g., Kubernetes) for scalability and high availability.
+2. **Performance Optimization**:
+   - Implement caching for frequent LLM queries to reduce latency and costs.
+   - Explore batch processing for simultaneous recommendations.
 3. **Security**:
-- Integrate API authentication using **OAuth2** or **JWT**.
-- Store sensitive data (e.g., API keys) in **AWS Secrets Manager** or **Azure Key Vault**.
+   - Manage secrets (e.g., API keys) using AWS Secrets Manager or Azure Key Vault.
+   - Introduce authentication (e.g., JWT) for securing API endpoints.
+4. **Monitoring**:
+   - Add structured logging (e.g., Datadog) for debugging and performance insights.
+   - Use tools like Prometheus and Grafana for monitoring usage patterns and latency.
+5. **Testing & QA**:
+   - Develop unit tests for `utils.py` and API endpoints.
+   - Conduct load testing to ensure resilience under high traffic.
 
-4. **Scaling**:
-- Containerise with Docker and deploy via **Kubernetes** or **AWS ECS** for auto-scaling.
-- Implement rate limiting and retries to handle high-traffic scenarios.
-
----
-
-This documentation outlines the rationale for design decisions and highlights future improvements for a robust, scalable, and production-ready solution.
