@@ -11,12 +11,11 @@
 ## Prompt/Model Approach
 
 ### Model Choice
-This project employs **OpenAI GPT** to power its recommendation engine. We have selected the `gpt-4o-mini` model for its robust natural language understanding and generation. 
-Reasons for opting this model for the MVP:
-- **High-Quality Generation**: Produces coherent, context-sensitive responses.  
-- **Cost-Effective**: Budget-friendly solution compared to larger models.  
+This project employs OpenAI's `gpt-4o-mini` to power its recommendation engine. Reasons for using this model in the MVP:
+- **High-Quality Structured Outputs**: Produces coherent, context-sensitive responses that conform to a JSON schema.
+- **Cost-Effective**: Budget-friendly solution compared to larger models. 
 - **Minimal Overhead**: Hosted by OpenAI, removing the need for in-house infrastructure.  
-- **Scalable**: High rate limits
+- **Scalable**: High rate limits with their real-time endpoint, which can be updated to the lower-cost batch endpoint post-MVP.
   
 This model is suitable for:
 - Generating human-readable explanations.
@@ -25,9 +24,9 @@ This model is suitable for:
 
 ### Prompt Design
 Prompts are dynamically crafted using **Jinja2 templates** to ensure:
-- **Clarity**: Each user’s data (e.g., profile details, transaction history) is presented in a structured format.
-- **Relevance**: Only applicable experiences are included in the prompt.
+- **Clarity**: Each user’s data (e.g., profile details, transaction history) is presented to the LLM in a structured format.
 - **Flexibility**: Easy to adapt for new data fields or experience categories.
+- **Organised**: Use of Jinja2 templates avoids having disorganised prompts spread throughout a codebase. It allows for centralised, organised prompt management.
 
 [Find all prompt templates used](../backend/templates/)
 
@@ -113,32 +112,12 @@ The workflow adheres to the architecture outlined in the provided diagram:
 
 ## Trade-Offs & Next Steps
 
-### Trade-Offs
 1. **Cost**:
-   - **Current**: OpenAI GPT incurs API costs, especially with high traffic.
-   - **Future**: Evaluate open-source alternatives like Hugging Face Transformers to reduce costs.
+   - **Current**: At very large production-level scales, the cost of this solution might not be worth it. However, the benefit is a rapid MVP to gain buy-in for future development.
+   - **Future**: Evaluate OpenAI's batch processing endpoint, or building in-house infrastructure to run a batch processing task using open-source LLMs such as Phi-4, Llama 3.1 or Gemma 2.
 2. **Data Storage**:
    - **Current**: JSON files provide a lightweight, easy-to-edit solution for MVP development.
    - **Future**: Transition to a relational database (e.g., PostgreSQL) for scalability.
 3. **Frontend**:
    - **Current**: Streamlit is ideal for demos but lacks the flexibility of modern front-end frameworks.
-   - **Future**: Build a React-based UI for a production-ready interface.
-
-### Next Steps
-1. **Production Deployment**:
-   - Migrate JSON-based data to a managed database (PostgreSQL or DynamoDB).
-   - Use container orchestration (e.g., Kubernetes) for scalability and high availability.
-2. **Performance Optimization**:
-   - Implement caching for frequent LLM queries to reduce latency and costs.
-   - Explore batch processing for simultaneous recommendations.
-3. **Security**:
-   - Manage secrets (e.g., API keys) using AWS Secrets Manager or Azure Key Vault.
-   - Introduce authentication (e.g., JWT) for securing API endpoints.
-4. **Monitoring**:
-   - Add structured logging (e.g., Datadog) for debugging and performance insights.
-   - Use tools like Prometheus and Grafana for monitoring usage patterns and latency.
-5. **Testing & QA**:
-   - Develop unit tests for `utils.py` and API endpoints.
-   - Conduct load testing to ensure resilience under high traffic.
-![Architecture](../images/FutureEnhance.png)
-
+   - **Future**: The recommendations should be integrated into the live application.
