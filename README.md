@@ -15,7 +15,7 @@
 - [Next Steps](#next-steps)
 - [Contributing](#contributing)
 
-[Read more documentation ](./documentation.md).
+[Read more documentation ](./docs/documentation.md).
 
 ---
 
@@ -103,7 +103,7 @@ None
 {% endif %}
 ...
 ```
-[Full Template Code](./backend/templates/prompt.jinja2) and other [Prompt Templates](./backend/templates/)
+[Full Template Code](./backend/templates/recommendations.jinja2) and other [Prompt Templates](./backend/templates/)
 
 ### Core Flow
 

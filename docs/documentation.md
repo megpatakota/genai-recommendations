@@ -22,7 +22,7 @@ Prompts are dynamically crafted using **Jinja2 templates** to ensure:
 - **Relevance**: Only applicable experiences are included in the prompt.
 - **Flexibility**: Easy to adapt for new data fields or experience categories.
 
-[Find prompt templates used](./backend/templates/)
+[Find all prompt templates used](../backend/templates/)
 
 #### Example Prompt Structure:
 ```plaintext
