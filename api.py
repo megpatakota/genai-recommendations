@@ -1,7 +1,7 @@
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.responses import PlainTextResponse
-from recommendation import get_recommendations
-from data_classes import RecommendationsResponse
+from src.recommendation import get_recommendations
+from src.data_classes import RecommendationsResponse
 
 app = FastAPI(
     title="Experience Recommender API",

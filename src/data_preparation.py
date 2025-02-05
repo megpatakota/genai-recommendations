@@ -20,7 +20,7 @@ load_dotenv()
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 
-with open("data.json", "r") as f:
+with open("data/data.json", "r") as f:
     data = json.load(f)
 
 # Create a lookup dictionary for members by their IDs.
@@ -83,7 +83,7 @@ def data_preparation(member_id: str) -> str:
     ]
 
     # Load Jinja2 template (prompt.jinja2 should be located in the same directory).
-    env = Environment(loader=FileSystemLoader("."))
+    env = Environment(loader=FileSystemLoader("./templates"))
     template = env.get_template("prompt.jinja2")
 
     # Render template with dynamic values.

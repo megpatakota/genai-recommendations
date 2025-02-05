@@ -7,13 +7,12 @@ recommendations from the LLM. It uses Jinja2 templating for prompt generation,
 pydantic models for structured output, and the OpenAI API for LLM requests.
 """
 
-import json
 import os
 from dotenv import load_dotenv
 from jinja2 import Environment, FileSystemLoader
 from openai import OpenAI
-from data_classes import Recommendations
-from data_preparation import data_preparation
+from src.data_classes import Recommendations
+from src.data_preparation import data_preparation
 
 # Load environment variables from a .env file (e.g., OPENAI_API_KEY).
 load_dotenv()
