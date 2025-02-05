@@ -15,7 +15,7 @@
 - [Next Steps](#next-steps)
 - [Contributing](#contributing)
 
-[Read more documentation ](./docs/documentation.md).
+## [Read more documentation ](./docs/documentation.md).
 
 ---
 
