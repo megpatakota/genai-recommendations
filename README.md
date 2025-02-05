@@ -19,12 +19,12 @@
 
 ## Overview
 
-![Architecture](./images/ProcessDiagram.png)
-
 This project leverages **Generative AI (GenAI)** to deliver personalised experience recommendations to members based on:
 - Their **profile information** (e.g., location, name).
 - **Past redeemed offers** and **recent transactions**.
 - Available experiences yet to be redeemed.
+
+![Architecture](./images/ProcessDiagram.png)
 
 The service consists of:
 1. **Backend Services**:
