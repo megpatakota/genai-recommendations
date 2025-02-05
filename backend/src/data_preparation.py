@@ -84,7 +84,7 @@ def data_preparation(member_id: str) -> str:
 
     # Load Jinja2 template (prompt.jinja2 should be located in the same directory).
     env = Environment(loader=FileSystemLoader("./templates"))
-    template = env.get_template("prompt.jinja2")
+    template = env.get_template("recommendations.jinja2")
 
     # Render template with dynamic values.
     prompt = template.render(

@@ -18,7 +18,7 @@ ENV POETRY_VIRTUALENVS_CREATE=false
 COPY pyproject.toml poetry.lock* /app/
 
 # Install Python dependencies using Poetry (without dev dependencies and without installing the project itself)
-RUN poetry install --without dev --no-root
+RUN poetry install --no-root
 
 # Copy the rest of the application code
 COPY . /app

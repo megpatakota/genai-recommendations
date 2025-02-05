@@ -5,6 +5,7 @@ import requests
 # Replace this with the base URL of your FastAPI service
 API_BASE_URL = "http://127.0.0.1:8000"
 
+
 # Function to fetch recommendations from the API
 def get_recommendations_from_api(member_id: str):
     try:
@@ -15,6 +16,7 @@ def get_recommendations_from_api(member_id: str):
         return {"error": f"HTTP error occurred: {http_err}"}
     except Exception as err:
         return {"error": f"An error occurred: {err}"}
+
 
 # Function to display recommendations in a structured format
 def display_recommendations(recommendations):
@@ -38,6 +40,7 @@ def display_recommendations(recommendations):
                 unsafe_allow_html=True,
             )
 
+
 # Streamlit UI
 st.title("🎯 Experience Recommender")
 st.subheader("🔎 Discover Your Next Adventure!")
@@ -46,7 +49,7 @@ st.subheader("🔎 Discover Your Next Adventure!")
 if "selected_member_id" not in st.session_state:
     st.session_state.selected_member_id = ""
 
-member_id_input = st.text_input("Enter Member ID")
+member_id_input = st.text_input("Enter Member ID", placeholder="Try 'M001' or 'M002'")
 
 if st.button("Get Recommendations", key="get_recommendations_btn"):
     st.session_state.selected_member_id = member_id_input  # Store in session state

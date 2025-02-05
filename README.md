@@ -53,16 +53,22 @@ Clone the repository and set up the environment using **Poetry**:
 git clone https://github.com/yourusername/genai-recommendations.git
 cd genai-recommendations
 
-# Install dependencies
+# Install dependencies for both backend and frontend 
+cd backend 
+poetry install
+cd ..
+cd frontend
 poetry install
 
 # Run the application. Make sure your docker image is build and is running. Then, try with input user ID `M001` or `M002` to see the recommendations.
+cd frontend
 poetry run streamlit run app.py
 ```
 
 Now START your docker, build and run your docker container:
 
 ```bash
+cd backend # go back by using 'cd ..' if you are in the frontend
 docker build -t genai-recommendations .
 docker run -e OPENAI_API_KEY=<insert-your-api-key> -p 8000:8000 genai-recommendations
 ```
@@ -97,7 +103,7 @@ None
 {% endif %}
 ...
 ```
-[Full Template Code](./prompt.jinja2).
+[Full Template Code](./backend/templates/prompt.jinja2) and other [Prompt Templates](./backend/templates/)
 
 ### Core Flow
 
@@ -177,7 +183,7 @@ Fetches recommendations for a specific member.
 
 ## Next Steps
 
-[Read more on TradeOffs & Next Steps](./documentation.md).
+[Read more on TradeOffs & Next Steps](/docs/documentation.md).
 ---
 
 ## Contributing

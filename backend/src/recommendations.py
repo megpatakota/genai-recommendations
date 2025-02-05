@@ -12,7 +12,7 @@ from dotenv import load_dotenv
 from jinja2 import Environment, FileSystemLoader
 from openai import OpenAI
 from src.data_classes import Recommendations
-from src.data_preparation import data_preparation
+from .data_preparation import data_preparation
 
 # Load environment variables from a .env file (e.g., OPENAI_API_KEY).
 load_dotenv()
@@ -42,11 +42,16 @@ def get_recommendations(member_id: str) -> dict:
     if not prompt:
         return {"error": "Member not found"}
 
+    # Load Jinja2 template (prompt.jinja2 should be located in the same directory).
+    env = Environment(loader=FileSystemLoader("./templates"))
+    system_template = env.get_template("system_message.jinja2")
+    system_message = system_template.render()
+
     # Call a Beta endpoint of the OpenAI API (this is a placeholder model name).
     completion = client.beta.chat.completions.parse(
         model="gpt-4o-mini",  # Replace with an actual OpenAI-compatible model
         messages=[
-            {"role": "system", "content": "You are a helpful assistant."},
+            {"role": "system", "content": system_message},
             {"role": "user", "content": prompt},
         ],
         temperature=0.7,

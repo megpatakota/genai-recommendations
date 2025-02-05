@@ -1,6 +1,6 @@
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.responses import PlainTextResponse
-from src.recommendation import get_recommendations
+from src.recommendations import get_recommendations
 from src.data_classes import RecommendationsResponse
 
 app = FastAPI(
