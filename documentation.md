@@ -1,4 +1,4 @@
-# Short Documentation for GenAI-Based Recommendation Service
+# Documentation for GenAI-Based Recommendation Service
 
 ---
 
