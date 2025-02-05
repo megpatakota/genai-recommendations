@@ -79,7 +79,6 @@ Now, that you have your docker container running, you can access the streamlit a
 ---
 
 ## Architecture
-```
 ### Core Flow
 
 1. **utils.py**:
