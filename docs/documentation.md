@@ -11,7 +11,14 @@
 ## Prompt/Model Approach
 
 ### Model Choice
-The project uses **OpenAI GPT** to power its recommendation engine. The chosen model (e.g., `gpt-4o-mini`) provides robust natural language understanding and generation capabilities. This model is suitable for:
+This project employs **OpenAI GPT** to power its recommendation engine. We have selected the `gpt-4o-mini` model for its robust natural language understanding and generation. 
+Reasons for opting this model for the MVP:
+- **High-Quality Generation**: Produces coherent, context-sensitive responses.  
+- **Cost-Effective**: Budget-friendly solution compared to larger models.  
+- **Minimal Overhead**: Hosted by OpenAI, removing the need for in-house infrastructure.  
+- **Scalable**: High rate limits
+  
+This model is suitable for:
 - Generating human-readable explanations.
 - Interpreting structured data like user profiles and transaction history.
 - Contextually linking diverse data points (e.g., dining preferences and location).
