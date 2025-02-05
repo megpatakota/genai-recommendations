@@ -16,9 +16,9 @@ Reasons for opting this model for the MVP:
 - **Powerful Understanding**: Accurately interprets user queries and delivers relevant suggestions.  
 - **High-Quality Generation**: Produces coherent, context-sensitive responses.  
 - **Cost-Effective**: Offers a budget-friendly solution compared to larger models.  
-- **Fast**: Delivers quick results for a smooth user experience.  
 - **Minimal Overhead**: Hosted by OpenAI, removing the need for in-house infrastructure.  
 - **Scalable**: Seamlessly grows with increasing demand.
+- **Batch Processing Endpoint**: Post MVP, designed to handle high-volume data tasks asynchronously, enhancing efficiency for offline processes.
   
 This model is suitable for:
 - Generating human-readable explanations.
