@@ -1,12 +1,3 @@
-"""
-utils.py
-
-This module provides functionalities to prepare data for a Large Language Model (LLM)
-prompt based on user (member) profile and transaction history, and to retrieve
-recommendations from the LLM. It uses Jinja2 templating for prompt generation,
-pydantic models for structured output, and the OpenAI API for LLM requests.
-"""
-
 import json
 import os
 from dotenv import load_dotenv

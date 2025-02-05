@@ -61,6 +61,6 @@ if __name__ == "__main__":
 
     uvicorn.run(app, host="0.0.0.0", port=8000)
 
-# test the code by running:
+# test the api code by running:
 # poetry run uvicorn api:app --reload
 # http://127.0.0.1:8000/recommendations/M001
