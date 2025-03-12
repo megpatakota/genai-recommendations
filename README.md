@@ -1,4 +1,4 @@
-# GenAI-Based Recommendation Service
+# AI Recommendation Service
 
 [![Personal Project](https://img.shields.io/badge/Project-Personal-green)](https://meg-patakota.github.io)
 [![by Meg Patakota](https://img.shields.io/badge/by-Meg%20Patakota-blue)](https://meg-patakota.github.io)
@@ -167,7 +167,7 @@ Contributions are welcome! Please follow the guidelines below:
 2. Open an issue for discussion.
 3. Submit a Pull Request with detailed descriptions of changes.
 
-I look forward to seeing how this project evolves with community input. Contact me via [GitHub](https://meg-patakota.github.io) for further discussions or suggestions.
+I look forward to seeing how this project evolves with community input. Contact me via [my website](https://megpatakota.co.uk) for further discussions or suggestions.
 
 ---
 
