@@ -174,7 +174,3 @@ I look forward to seeing how this project evolves with community input. Contact 
 ## License
 
 This project is maintained by **Meg Patakota**. All rights reserved. Not licensed for use or redistribution without explicit permission.
-
----
-
-This README communicates professionalism and a clear thought process, emphasising modularity, next steps, and the potential for collaboration. Let me know if you'd like any adjustments!
